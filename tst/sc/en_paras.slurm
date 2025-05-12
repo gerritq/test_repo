@@ -1,16 +1,4 @@
 #!/bin/bash
-#SBATCH --job-name=hp-enp
-#SBATCH --output=../../sc_logs/en/%j.out
-#SBATCH --error=../../sc_logs/en/%j.err
-#SBATCH --time=12:00:00
-#SBATCH --partition=rental_gpu
-# SBATCH --partition=nmes_gpu,gpu
-#SBATCH --gres=gpu:1
-
-export HF_HOME="/scratch/prj/inf_nlg_ai_detection/scratch_tmp/.cache"
-
-source /scratch/users/k21157437/aid_venv/bin/activate
-which python
 
 nvidia-smi
 
@@ -34,12 +22,12 @@ for MODEL in "${MODELS[@]}"; do
           for WD in "${WEIGHT_DECAY[@]}"; do
             for SEED in "${SEEDS[@]}"; do
               MODEL_NAME=$(echo $MODEL | sed 's/\//_/g')
-              LOG_FILE="../../sc_logs/${LANGUAGE}/${MODEL_NAME}_${DATASUBSET}_${LR}_${BATCH_SIZE}_${EPOCH}_${WD}_${SEED}.log"
+              # LOG_FILE="../../sc_logs/${LANGUAGE}/${MODEL_NAME}_${DATASUBSET}_${LR}_${BATCH_SIZE}_${EPOCH}_${WD}_${SEED}.log"
 
               echo "Running experiment with lang=$LANGUAGE model=$MODEL, dataset=$DATASUBSET, lr=$LR, batch_size=$BATCH_SIZE, epochs=$EPOCH, weight_decay=$WD, seed=$SEED"
 
               run_start_time=$(date +%s)
-              python train.py \
+              python test/sc/train.py \
                 --language $LANGUAGE \
                 --dsubset $DATASUBSET \
                 --model $MODEL \
@@ -48,7 +36,7 @@ for MODEL in "${MODELS[@]}"; do
                 --learning_rate $LR \
                 --weight_decay $WD \
                 --warmup_ratio $WARMUP_RATIO \
-                --seed $SEED  2>&1 # > $LOG_FILE
+                --seed $SEED  2>&1
               run_end_time=$(date +%s)
               elapsed_time=$((run_end_time - run_start_time))
 

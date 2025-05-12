@@ -1,12 +1,8 @@
 #!/bin/bash
 
-TO DO: check folder, no need for len
-cd models generalise/data/detect_len
-mkdir -p models
-cd models
+cd generalise/ds
 
-# TO DO
-FILE_ID="YOUR_GOOGLE_DRIVE_FILE_ID"
+FILE_ID="1ZKNkMJjhNEaAfYVeyw14gc7zwgzzCiZz"
 ZIP_NAME="hp_len.zip"
 
 if [ ! -d "hp_len" ]; then
@@ -15,7 +11,7 @@ if [ ! -d "hp_len" ]; then
   echo "Unzipping..."
   unzip -q "$ZIP_NAME"
   rm "$ZIP_NAME"
-  echo "Models downloaded and extracted to models/hp_len/"
+  echo "Models downloaded and extracted to generalise/ds/hp_len"
 else
   echo "Model directory already exists. Skipping download."
 fi

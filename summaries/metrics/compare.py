@@ -20,7 +20,6 @@ def get_model(lang_code):
         return spacy.load('pt_core_news_sm')
     elif lang_code == 'vi':
         return spacy.load('xx_ent_wiki_sm') # not optimal but the only one that will run for a small sample
-        #return "underthesea_vi"
 
 
 def extract_entities(text, nlp):
@@ -65,8 +64,7 @@ def calculate_entity_overlap(text, infobox, summary, nlp):
 
 def load_wikis_sums(ds_name):
     data = []
-    #wiki_file = f"../../data/{ds_name[:2]}/ds/{ds_name}.jsonl"
-    raw_file = f"/scratch_tmp/users/k21157437/aid/data/{ds_name[:2]}/3_{ds_name[:2]}_text.jsonl"
+    raw_file = f"data/{ds_name[:2]}/3_{ds_name[:2]}_text.jsonl"
     
     # need to rm citations in our text
     refs_PATTERN = r'\[sup:.*?:sup\]'
@@ -94,8 +92,6 @@ def load_wikis_sums(ds_name):
             infobox = rex.sub(refs_PATTERN, '', infobox).strip() 
             entry['infobox'] = infobox
 
-            # if entry["infobox"]:
-            #     entry["body"] = entry["infobox"] + "\n\n" + entry["body"]
             data.append({k: v for k, v in entry.items() if k in ['id', 'title', 'trgt', 'src', 'infobox']})
     return data
 
@@ -176,7 +172,6 @@ def process_dataset(dataset_name, scorer):
         # load hf data
         dataset = load_dataset(dataset_name, 
                                subset, 
-                               cache_dir='/scratch_tmp/prj/inf_nlg_ai_detection/.cache', 
                                trust_remote_code=True)
         # retrieve all splits in one ds
         print('Flattens data', flush=True)
@@ -193,11 +188,7 @@ def process_dataset(dataset_name, scorer):
     entity_metrics_list = []
     
     for idx, item in enumerate(tqdm(dataset, file=sys.stdout)):
-        # print('')
-        # print(item['title'])
-        # print(item['infobox'])
-        # print(item['src'])
-        # print(item['trgt'])
+
         basic_metrics = calculate_metrics(scorer, 
                                           item[text_col], 
                                           item[summary_col], 
@@ -249,7 +240,7 @@ def process_dataset(dataset_name, scorer):
         }
         agg_metrics.update(entity_agg_metrics)
         
-        entity_file = f'../../data/compare/{dataset_name.replace("/", "_")}_entity_metrics.csv'
+        entity_file = f'data/{dataset_name.replace("/", "_")}_entity_metrics.csv'
         entity_df.to_csv(entity_file, index=False)
         print(f"Saved entity metrics for {len(entity_df)} samples to {entity_file}")
         
@@ -268,7 +259,7 @@ def main():
 
     results_df = process_dataset(ds_names[task_id], scorer)
     
-    output_file = f'../../data/compare/{ds_names[task_id].replace("/", "_")}_metrics.xlsx'
+    output_file = f'data/compare/{ds_names[task_id].replace("/", "_")}_metrics.xlsx'
     results_df.to_excel(output_file, index=False)
 
     print('Time in mins', round((time.time() - start) / 60), flush=True)

@@ -8,13 +8,7 @@ This repository is the official implementation of  __WETBench: A Benchmark for D
 
 ## Abstract
 
-Detecting machine-generated text (MGT) is increasingly important due to persistent limitations in large language models (LLMs). Nonetheless, humans use these models to generate text for a wide range of tasks (e.g., summarisation). However, existing benchmarks typically evaluate detectors on a single *generic* topic-to-text task (e.g., *"Write an article about <topic>"*), which fails to reflect the diverse tasks for which humans use LLMs. This limitation is particularly problematic for Wikipedia, where generic generation settings diverge from practical editorial workflows, potentially obscuring true detector performance.
-
-We present **WETBench**, a multilingual, multi-generator benchmark for *task-specific* MGT detection on Wikipedia. We define three editing tasks based on Wikipedia editors’ perceived use cases for LLM-assisted writing: *Paragraph Writing*, *Summarisation*, and *Text Style Transfer*, implemented using two new Wikipedia datasets in three languages.
-
-For each task, we test three prompts and generate MGT across multiple LLMs using the best-performing prompt. We evaluate detectors from three model families on (i) within-task performance and (ii) generalisability across task setups (task-specific ↔ topic-to-text) and domains. We find that (i) detectors perform significantly worse on task-specific data, with top models achieving 5–18% lower accuracy compared to generic setups; and (ii) we observe a generalisation asymmetry: supervised models trained on task-specific data generalise to topic-to-text data, but not vice versa. We show this is because models trained on generic data tend to overfit to superficial MGT artifacts rather than learning transferable features.
-
-These findings indicate that generic setups overestimate detector accuracy and generalisability, undermining their reliability in real-world settings. We advocate for the development and evaluation of detectors across diverse human writing tasks to improve the trustworthiness of MGT detection systems.
+TODO
 
 ---
 
@@ -30,7 +24,7 @@ cd X_NURBS
 
 ### 2. Download Pretrained Models
 
-We host the pre-trained models for experiment 2 on generalisability on GDrive. You can also run the models yourself with fiel TODO:add file here. The file below will download and unzip models to `TODO:file dir`. Download file is 18GB and unzipped is 25GB.
+We host the pre-trained models for experiment 2 on generalisability on GDrive. You can also run the models yourself with file TODO:add file here. The file below will download and unzip models to `TODO:file dir`. Download file is 18GB and unzipped is 25GB.
 
 ```bash
 bash download_models.sh
@@ -57,7 +51,7 @@ export HF_HOME="" # optional to manage cache
 
 ---
 
-## Results 
+## Main Results 
 
 **Note:** Experiment 1 was run on either a single **NVIDIA A100 80GB** or two **NVIDIA A100 40GB**. Experiment 2 was run on a single **NVIDIA A100 80GB**. We strongly recommend to replicate results with GPUs.
 
@@ -80,7 +74,7 @@ bash run_detection.sh
 
 Running this populates /scratch/users/k21157437/x_neurips/generalise/data/detect of the format trainFile_2_testFile_model_language.jsonl
 
-![Confusion matrix for GPT-4o mini](assets/cm_gpt.pdf)
+![Confusion matrix for GPT-4o mini](assets/cm_gpt.png)
 
 ```bash
 bash run_generalisation.sh
@@ -88,7 +82,7 @@ bash run_generalisation.sh
 
 ### Experiment 2: SHAP Value Analysis
 
-![SHAP values for mDeberta trained on task-specific (our) data versus topic-to-text data on Wikipedia](assets/shap_vals.pdf)
+![SHAP values for mDeberta trained on task-specific (our) data versus topic-to-text data on Wikipedia](assets/shap_vals.png)
 
 Running this create shap_vals.pdf in assets.
 ```bash
@@ -99,7 +93,49 @@ Each script will log its output to the `logs/` directory (if applicable) and wri
 
 ---
 
+## Other Results
+
+### Prompt Selection
+
+
+![Prompt Evaluation. Values in parantheses show pp improvement over the baseline promtps](assets/table_1.png)
+
+Add ypu can also run everything without qafacteval bc this causes problems
+To replicate our prompt selection evaluation, ensure the following requirements are met
+
+1. Create a Conda env for QAFactEval
+
+For evaluation with QAFactEval, we recommend to use Conda. Clone and install the QAFactEval to the cwd. You can follow the instructions from the corresponding repo: https://github.com/salesforce/QAFactEval. Then create a conda environment:
+
+```bash
+conda env create -f environment_qafe.yml
+pip install -r requirements_qafe.txt
+```
+
+2. Download Style Classifiers
+
+Download the style classifiers. This is the same procedure as above, so please nsure you have `gdown` installed.
+
+```bash
+bash download_sc.sh
+```
+
+3. Run the Evaluation
+
+To run the evaluation use the following command. This runs the evaluation for Vietnamese, but you can change the parameter in the corresponding files.
+
+```bash
+bash run_prompt_eval.sh
+```
+
+
+---
+
 ## Data Collection
+
+We provide all data (WikiPS, mWNC, and the MGTs) via [Hugging Face](https://huggingface.co/datasets/cs928346/WETBench) 
+
+Below we show how to replicate our data sets.
 
 ### WikiParas
 
@@ -173,8 +209,7 @@ bash tst/data/5_get_paras.sh
 
 ## Contributing
 
+Valuable contributions inlcude:
 
-
-**Note**: A valuable contibution would be to implement the data cleaning with the `mwparserfromhtml` (https://pypi.org/project/mwparserfromhtml/)
-
->📋  Pick a licence and describe how to contribute to your code repository. 
+- A valuable contibution would be to implement the data cleaning with the `mwparserfromhtml` (https://pypi.org/project/mwparserfromhtml/)
+- Extending the data to other languages, including more generators, and expanding tasks

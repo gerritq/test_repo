@@ -21,7 +21,7 @@ class TextEvaluator:
         self.total_n = total_n
         self.bleu = evaluate.load("bleu")
         self.rouge = evaluate.load("rouge")
-        self.bertscore = evaluate.load("bertscore", cache_dir='/scratch_tmp/prj/inf_nlg_ai_detection/.cache')
+        self.bertscore = evaluate.load("bertscore")
         if lang == 'en':
             self.model = 'distilbert-base-uncased'
         else:
@@ -106,10 +106,10 @@ class TextEvaluator:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--lang', type=str, required=True, help='Language of the texts (e.g., "en")')
-    parser.add_argument('--in_file', type=str, required=True, help='Input JSONL file path')
-    parser.add_argument('--out_file', type=str, required=True, help='Output file path for metrics')
-    parser.add_argument('--prompt_techs', type=str, nargs='+', required=True, help='Prompting techniques to evaluate')
+    parser.add_argument('--lang', type=str, required=True)
+    parser.add_argument('--in_file', type=str, required=True)
+    parser.add_argument('--out_file', type=str, required=True)
+    parser.add_argument('--prompt_techs', type=str, nargs='+', required=True)
     parser.add_argument('--total_n', type=int, required=True)
     args = parser.parse_args()
 

@@ -8,6 +8,9 @@ from collections import defaultdict
 from qafacteval import QAFactEval
 from utils import load_jsonl, save_jsonl
 
+
+
+
 os.environ['CUDA_LAUNCH_BLOCKING']="1"
 os.environ['TORCH_USE_CUDA_DSA'] = "1"
 
@@ -36,7 +39,7 @@ class QAFactEvalRunner:
             "lerc_batch_size": 16
         }
         
-        self.model_folder = '/scratch_tmp/users/k21157437/QAFactEval/models'
+        self.model_folder = '/scratch/users/k21157437/QAFactEval/models'
         self.QAmetric = QAFactEval(
             lerc_quip_path=f"{self.model_folder}/quip-512-mocha",
             generation_model_path=f"{self.model_folder}/generation/model.tar.gz",
@@ -132,11 +135,11 @@ if __name__ == "__main__":
     print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else "No GPU found", flush=True)
     
     parser = argparse.ArgumentParser()
-    parser.add_argument('--lang', type=str, required=True, help='Language of the texts (e.g., "en")')
-    parser.add_argument('--in_file', type=str, required=True, help='Input JSONL file path')
-    parser.add_argument('--out_file', type=str, required=True, help='Output file path for metrics')
-    parser.add_argument('--prompt_techs', type=str, nargs='+', required=True, help='Prompting techniques to evaluate')
-    parser.add_argument('--ds', type=str, required=True, help='Dataset')
+    parser.add_argument('--lang', type=str, required=True)
+    parser.add_argument('--in_file', type=str, required=True)
+    parser.add_argument('--out_file', type=str, required=True)
+    parser.add_argument('--prompt_techs', type=str, nargs='+', required=True)
+    parser.add_argument('--ds', type=str, required=True)
     args = parser.parse_args()
     
     evaluator = QAFactEvalRunner(args.lang, args.ds, args.in_file, args.out_file, args.prompt_techs)

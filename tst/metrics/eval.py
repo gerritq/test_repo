@@ -19,12 +19,12 @@ class TSTRunner:
         self.prompt_techs = prompt_techs
         
         if lang != 'en':
-            self.best_model_dir = f"../../data/{lang}/sc/best_model"
+            self.best_model_dir = f"tst/ds/sc/best_model_{lang}" # we will provide these shortly
         else:
             if subset.endswith('paras'):
-                self.best_model_dir = f"../../data/{lang}/sc/best_model_paras"
+                self.best_model_dir = f"tst/ds/sc/best_model_paras_{lang}"
             else:
-                self.best_model_dir = f"../../data/{lang}/sc/best_model_sents"
+                self.best_model_dir = f"tst/ds/sc/best_model_sents_{lang}"
 
         if self.lang == 'en':
             self.model = 'distilbert-base-uncased'
@@ -63,9 +63,9 @@ class TSTRunner:
             subset_path='_paras'
         else:
             subset_path=''
-        mgt_file = f'../../data/{self.lang}/eval/{self.lang}_eval_{prompting}.jsonl'
-        out_file_micro = f'../../data/{self.lang}/eval{subset_path}/metrics/{self.lang}_{prompting}_metrics_micro.jsonl'
-        out_file_macro = f'../../data/{self.lang}/eval{subset_path}/metrics/{self.lang}_{prompting}_metrics_macro.jsonl'
+        mgt_file = f'tst/ds/eval/{self.lang}_eval_{prompting}.jsonl'
+        out_file_micro = f'tst/ds/metrics/{self.lang}{subset_path}_{prompting}_metrics_micro.jsonl'
+        out_file_macro = f'tst/ds/metrics/{self.lang}{subset_path}_{prompting}_metrics_macro.jsonl'
         
         # Load data
         data = load_jsonl(mgt_file)
@@ -133,7 +133,6 @@ class TSTRunner:
         save_jsonl([mean_scores], out_file_macro)
     
     def run(self):
-        """Run evaluation for all specified prompting techniques"""
         for prompting in self.prompt_techs:
             print(f'Eval prompting {prompting}')
             self.evaluate_prompting_technique(prompting)

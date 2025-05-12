@@ -1,13 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=ft-en
-#SBATCH --output=../../sc_logs/en/%j.out
-#SBATCH --error=../../sc_logs/en/%j.err
-#SBATCH --partition=gpu
-#SBATCH --gres=gpu:1
-#SBATCH --time=04:30:00
-
 
 nvidia-smi
+
 # Define variables
 LANGUAGE="en"
 DSUBSET="ft"
@@ -21,7 +15,7 @@ WEIGHT_DECAY=0.01
 echo "Running fine-tuning for language=$LANGUAGE on dataset=$DSUBSET with model=$MODEL..."
 start_time=$(date +%s)
 
-python3 train.py \
+python3 test/sc/train.py \
   --language $LANGUAGE \
   --dsubset $DSUBSET \
   --model $MODEL \

@@ -48,10 +48,6 @@ def gen_ds(in_file, args):
     ds_full['val'] = dev_test['train']
     ds_full['test'] = dev_test['test']
 
-    # print('Total size:', len(ds_full))
-    # print('Size TRAIN', len(ds_full['train']))
-    # print('Size VAL', len(ds_full['val']))
-    # print('Size TEST', len(ds_full['test']))
     assert len(ds_full['train']) + len(ds_full['val']) + len(ds_full['test']) == sum(len(ds_full[k]) for k in ds_full)
 
     

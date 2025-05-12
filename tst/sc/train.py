@@ -39,8 +39,8 @@ def main():
     args = parser.parse_args()
     
     # create in and out directories
-    in_file = f"../../data/{args.language}/datasets/4_{args.language}_{args.dsubset}.jsonl"
-    out_dir = f"../../data/{args.language}/sc"
+    in_file = f"data/4_{args.language}_{args.dsubset}.jsonl" # need to run full data set creation first
+    out_dir = f"tst/ds/sc"
 
     # for en we have sentences or paras
     if args.language == 'en':
@@ -87,8 +87,6 @@ def main():
     ds = gen_ds(in_file, args)
     ds_tok = ds.map(tokenize_function, batched=True)
     
-    
-    # Define model
     torch.cuda.empty_cache()
 
     def model_init():
@@ -145,7 +143,6 @@ def main():
             f.write(mname)
     #tokeniser.save_pretrained(f"{out_dir}/{mname}/tokeniser")
     
-    # Save log history to a file
     with open(f"{out_dir}/logs{level}/{mname}_log.json", "w", encoding="utf-8") as log_file:
         json.dump(trainer.state.log_history, log_file, ensure_ascii=False, indent=3)
 
