@@ -1,0 +1,61 @@
+\begin{tabular}{lccccccccccccccccc}
+\toprule
+ & \multicolumn{6}{c}{\textbf{Introductory Paragraph}} &  & \multicolumn{6}{c}{\textbf{Paragraph Continuation}} \\
+\cmidrule(lr){2-7} \cmidrule(lr){9-14}
+\textbf{Detector} & \multicolumn{2}{c}{\textbf{English}} & \multicolumn{2}{c}{\textbf{Portuguese}} & \multicolumn{2}{c}{\textbf{Vietnamese}} &  & \multicolumn{2}{c}{\textbf{English}} & \multicolumn{2}{c}{\textbf{Portuguese}} & \multicolumn{2}{c}{\textbf{Vietnamese}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){9-10} \cmidrule(lr){11-12} \cmidrule(lr){13-14}
+ & ACC & F1 & ACC & F1 & ACC & F1 &  & ACC & F1 & ACC & F1 & ACC & F1 \\
+\midrule
+Binoculars & \greygra{58.5} & \greygra{60.3} & \greygra{62.5} & \greygra{62.5} & \greygra{67.2} & \greygra{70.3} &  & \greygra{52.9} & \greygra{50.7} & \greygra{57.1} & \greygra{55.3} & \greygra{61.7} & \greygra{64.2} \\
+LLR & \greygra{51.2} & \greygra{61.6} & \greygra{53.2} & \greygra{54.6} & \greygra{55.6} & \greygra{33.2} &  & \greygra{50.8} & \greygra{18.5} & \greygra{52.4} & \greygra{34.5} & \greygra{52.5} & \greygra{27.4} \\
+FDGPT (WB) & \greygra{54.4} & \greygra{51.4} & \greygra{59.5} & \greygra{59.6} & \greygra{63.7} & \greygra{49.8} &  & \greygra{51.1} & \greygra{38.4} & \greygra{55.9} & \greygra{44.8} & \greygra{58.7} & \greygra{45.4} \\
+\cdashline{1-7}
+\cdashline{9-14}
+\addlinespace[4pt]
+\textbf{Avg. White-box} & \textbf{\greygra{54.7}} & \textbf{\greygra{57.8}} & \textbf{\greygra{58.4}} & \textbf{\greygra{58.9}} & \textbf{\greygra{62.2}} & \textbf{\greygra{51.1}} &  & \textbf{\greygra{51.6}} & \textbf{\greygra{35.9}} & \textbf{\greygra{55.1}} & \textbf{\greygra{44.9}} & \textbf{\greygra{57.6}} & \textbf{\greygra{45.7}} \\
+\addlinespace[6pt]
+Revise & \greygra{52.4} & \greygra{52.0} & \greygra{54.2} & \greygra{55.2} & \greygra{52.7} & \greygra{41.4} &  & \greygra{51.5} & \greygra{46.0} & \greygra{51.8} & \greygra{46.3} & \greygra{52.0} & \greygra{56.9} \\
+GECScore & \greygra{76.9} & \greygra{76.0} & \greygra{69.4} & \greygra{72.7} & \greygra{62.4} & \greygra{63.4} &  & \greygra{56.9} & \greygra{55.5} & \greygra{55.0} & \greygra{30.6} & \greygra{52.9} & \greygra{27.9} \\
+FDGPT (BB) & \greygra{54.5} & \greygra{51.1} & \greygra{60.2} & \greygra{52.9} & \greygra{63.0} & \greygra{50.6} &  & \greygra{52.0} & \greygra{25.8} & \greygra{57.7} & \greygra{48.8} & \greygra{60.8} & \greygra{49.2} \\
+\cdashline{1-7}
+\cdashline{9-14}
+\addlinespace[4pt]
+\textbf{Avg. Black-box} & \textbf{\greygra{61.3}} & \textbf{\greygra{59.7}} & \textbf{\greygra{61.2}} & \textbf{\greygra{60.2}} & \textbf{\greygra{59.4}} & \textbf{\greygra{51.8}} &  & \textbf{\greygra{53.5}} & \textbf{\greygra{42.4}} & \textbf{\greygra{54.8}} & \textbf{\greygra{41.9}} & \textbf{\greygra{55.2}} & \textbf{\greygra{44.6}} \\
+\addlinespace[6pt]
+xlm-RoBERTa & \greygra{83.5} & \greygra{83.1} & \greygra{78.7} & \greygra{77.6} & \greygra{85.8} & \greygra{85.1} &  & \greygra{82.2} & \greygra{82.1} & \greygra{82.6} & \greygra{82.0} & \greygra{87.6} & \greygra{87.6} \\
+mDeBERTa & \greygra{87.0} & \greygra{86.7} & \greygra{81.1} & \greygra{80.2} & \greygra{86.2} & \greygra{85.5} &  & \greygra{83.5} & \greygra{83.4} & \greygra{83.6} & \greygra{83.4} & \greygra{86.8} & \greygra{86.7} \\
+\cdashline{1-7}
+\cdashline{9-14}
+\addlinespace[4pt]
+\textbf{Avg. Supervised} & \textbf{\greygra{85.2}} & \textbf{\greygra{84.9}} & \textbf{\greygra{79.9}} & \textbf{\greygra{78.9}} & \textbf{\greygra{86.0}} & \textbf{\greygra{85.3}} &  & \textbf{\greygra{82.9}} & \textbf{\greygra{82.8}} & \textbf{\greygra{83.1}} & \textbf{\greygra{82.7}} & \textbf{\greygra{87.2}} & \textbf{\greygra{87.2}} \\
+\midrule[1.5pt]
+\multicolumn{1}{c}{} & \multicolumn{6}{c}{\textbf{Summarisation}} &  & \multicolumn{8}{c}{\textbf{Text Style Transfer}} \\
+\cmidrule(lr){2-7} \cmidrule(lr){9-16}
+\multicolumn{1}{c}{} & \multicolumn{2}{c}{\textbf{English}} & \multicolumn{2}{c}{\textbf{Portuguese}} & \multicolumn{2}{c}{\textbf{Vietnamese}} &  & \multicolumn{2}{c}{\textbf{English}} & \multicolumn{2}{c}{\textbf{Portuguese}} & \multicolumn{2}{c}{\textbf{Vietnamese}} & \multicolumn{2}{c}{\textbf{Italian}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){9-10} \cmidrule(lr){11-12} \cmidrule(lr){13-14} \cmidrule(lr){15-16}
+ & ACC & F1 & ACC & F1 & ACC & F1 &  & ACC & F1 & ACC & F1 & ACC & F1 & ACC & F1 \\
+\midrule
+Binoculars & \greygra{61.2} & \greygra{62.2} & \greygra{68.9} & \greygra{70.9} & \greygra{66.2} & \greygra{70.6} &  & \greygra{52.1} & \greygra{34.4} & \greygra{54.0} & \greygra{50.7} & \greygra{54.7} & \greygra{38.7} &  &  \\
+LLR & \greygra{54.9} & \greygra{65.8} & \greygra{55.8} & \greygra{60.7} & \greygra{54.7} & \greygra{56.3} &  & \greygra{50.2} & \greygra{3.1} & \greygra{50.3} & \greygra{15.5} & \greygra{51.1} & \greygra{34.5} &  &  \\
+FDGPT (WB) & \greygra{58.8} & \greygra{57.3} & \greygra{65.4} & \greygra{65.2} & \greygra{64.3} & \greygra{51.4} &  & \greygra{52.5} & \greygra{57.2} & \greygra{53.1} & \greygra{49.3} & \greygra{53.9} & \greygra{41.2} &  &  \\
+\cdashline{1-7}
+\cdashline{9-16}
+\addlinespace[4pt]
+\textbf{Avg. White-box} & \textbf{\greygra{58.3}} & \textbf{\greygra{61.8}} & \textbf{\greygra{63.4}} & \textbf{\greygra{65.6}} & \textbf{\greygra{61.8}} & \textbf{\greygra{59.4}} &  & \textbf{\greygra{51.6}} & \textbf{\greygra{31.6}} & \textbf{\greygra{52.5}} & \textbf{\greygra{38.5}} & \textbf{\greygra{53.2}} & \textbf{\greygra{38.1}} &  &  \\
+\addlinespace[6pt]
+Revise & \greygra{52.8} & \greygra{60.2} & \greygra{52.7} & \greygra{56.4} & \greygra{52.8} & \greygra{58.7} &  & \greygra{52.1} & \greygra{62.4} & \greygra{52.1} & \greygra{56.4} & \greygra{52.1} & \greygra{60.0} &  &  \\
+GECScore & \greygra{74.8} & \greygra{75.4} & \greygra{67.6} & \greygra{71.0} & \greygra{62.7} & \greygra{66.6} &  & \greygra{63.4} & \greygra{61.4} & \greygra{60.9} & \greygra{58.9} & \greygra{56.6} & \greygra{37.9} &  &  \\
+FDGPT (BB) & \greygra{59.3} & \greygra{60.7} & \greygra{64.9} & \greygra{65.3} & \greygra{63.2} & \greygra{49.2} &  & \greygra{51.8} & \greygra{39.2} & \greygra{52.9} & \greygra{40.7} & \greygra{53.1} & \greygra{37.4} &  &  \\
+\cdashline{1-7}
+\cdashline{9-16}
+\addlinespace[4pt]
+\textbf{Avg. Black-box} & \textbf{\greygra{62.3}} & \textbf{\greygra{65.4}} & \textbf{\greygra{61.7}} & \textbf{\greygra{64.2}} & \textbf{\greygra{59.6}} & \textbf{\greygra{58.2}} &  & \textbf{\greygra{55.8}} & \textbf{\greygra{54.3}} & \textbf{\greygra{55.3}} & \textbf{\greygra{52.0}} & \textbf{\greygra{54.0}} & \textbf{\greygra{45.1}} &  &  \\
+\addlinespace[6pt]
+xlm-RoBERTa & \greygra{90.6} & \greygra{90.5} & \greygra{90.1} & \greygra{90.1} & \greygra{87.8} & \greygra{87.4} &  & \greygra{61.3} & \greygra{59.0} & \greygra{63.8} & \greygra{62.6} & \greygra{59.2} & \greygra{57.0} &  &  \\
+mDeBERTa & \greygra{89.4} & \greygra{89.3} & \greygra{90.5} & \greygra{90.4} & \greygra{87.0} & \greygra{86.6} &  & \greygra{60.6} & \greygra{59.4} & \greygra{66.7} & \greygra{65.1} & \greygra{64.0} & \greygra{62.7} &  &  \\
+\cdashline{1-7}
+\cdashline{9-16}
+\addlinespace[4pt]
+\textbf{Avg. Supervised} & \textbf{\greygra{90.0}} & \textbf{\greygra{89.9}} & \textbf{\greygra{90.3}} & \textbf{\greygra{90.2}} & \textbf{\greygra{87.4}} & \textbf{\greygra{87.0}} &  & \textbf{\greygra{61.0}} & \textbf{\greygra{59.2}} & \textbf{\greygra{65.3}} & \textbf{\greygra{63.9}} & \textbf{\greygra{61.6}} & \textbf{\greygra{59.8}} &  &  \\
+\bottomrule
+\end{tabular}

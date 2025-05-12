@@ -1,0 +1,28 @@
+\begin{tabular}{lcccccccccc}
+\toprule
+\textbf{Detector} & \multicolumn{10}{c}{\textbf{English Text Style Transfer}} \\
+\cmidrule(lr){2-11}
+ & \multicolumn{2}{c}{GPT-4o mini} & \multicolumn{2}{c}{Gemini 2.0} & \multicolumn{2}{c}{Qwen 2.5} & \multicolumn{2}{c}{Mistral} & \multicolumn{2}{c}{\textbf{Avg}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9} \cmidrule(lr){10-11}
+ & ACC & F1 & ACC & F1 & ACC & F1 & ACC & F1 & ACC & F1 \\
+\midrule
+Binoculars & 0.58 & 0.53 & 0.55 & 0.47 & 0.52 & 0.39 & 0.57 & 0.51 & \textbf{0.56} & \textbf{0.48} \\
+LLR & 0.52 & 0.25 & 0.51 & 0.22 & 0.50 & 0.03 & 0.53 & 0.40 & \textbf{0.51} & \textbf{0.22} \\
+FDGPT (WB) & 0.60 & 0.63 & 0.56 & 0.60 & 0.52 & 0.61 & 0.58 & 0.61 & \textbf{0.56} & \textbf{0.61} \\
+\cdashline{1-11}
+Avg (White-box) & 0.57 & 0.47 & 0.54 & 0.43 & 0.52 & 0.34 & 0.56 & 0.51 & \textbf{0.55} & \textbf{0.44} \\
+\addlinespace[3pt]
+Revise & 0.52 & 0.39 & 0.52 & 0.47 & 0.53 & 0.45 & 0.52 & 0.39 & \textbf{0.53} & \textbf{0.42} \\
+GECScore & 0.83 & 0.82 & 0.64 & 0.53 & 0.73 & 0.70 & 0.67 & 0.68 & \textbf{0.72} & \textbf{0.68} \\
+FDGPT (BB) & 0.59 & 0.61 & 0.54 & 0.56 & 0.51 & 0.64 & 0.58 & 0.54 & \textbf{0.56} & \textbf{0.59} \\
+\cdashline{1-11}
+Avg (Black-box) & 0.65 & 0.61 & 0.57 & 0.52 & 0.59 & 0.60 & 0.59 & 0.54 & \textbf{0.60} & \textbf{0.57} \\
+\addlinespace[3pt]
+xlm-RoBERTa & 0.54 & 0.48 & 0.63 & 0.61 & 0.57 & 0.54 & 0.53 & 0.46 & \textbf{0.57} & \textbf{0.52} \\
+mDeBERTa & 0.60 & 0.60 & 0.64 & 0.64 & 0.61 & 0.61 & 0.59 & 0.58 & \textbf{0.61} & \textbf{0.61} \\
+\cdashline{1-11}
+Avg (Supervised) & 0.57 & 0.54 & 0.64 & 0.63 & 0.59 & 0.57 & 0.56 & 0.52 & \textbf{0.59} & \textbf{0.57} \\
+\addlinespace[3pt]
+\midrule
+\bottomrule
+\end{tabular}

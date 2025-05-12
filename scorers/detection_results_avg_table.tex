@@ -1,0 +1,87 @@
+\begin{tabular}{lcccccccc}
+\toprule
+\textbf{Detector} & \multicolumn{2}{c}{\textbf{English}} & \multicolumn{2}{c}{\textbf{Portuguese}} & \multicolumn{2}{c}{\textbf{Vietnamese}} & \multicolumn{2}{c}{\textbf{Avg}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9}
+ & ACC & F1 & ACC & F1 & ACC & F1 & ACC & F1 \\
+\midrule
+\multicolumn{9}{l}{\textbf{Introductory Paragraph}} \\
+\midrule
+Binoculars & 0.59 & 0.60 & 0.62 & 0.63 & 0.67 & 0.70 & \textbf{0.63} & \textbf{0.64} \\
+LLR & 0.51 & 0.62 & 0.53 & 0.55 & 0.56 & 0.33 & \textbf{0.53} & \textbf{0.50} \\
+FDGPT (WB) & 0.54 & 0.51 & 0.60 & 0.60 & 0.64 & 0.50 & \textbf{0.59} & \textbf{0.54} \\
+\cdashline{1-9} \addlinespace[1pt]
+Avg. White-box & \textbf{\greygra{0.55}} & \textbf{\greygra{0.58}} & \textbf{\greygra{0.58}} & \textbf{\greygra{0.59}} & \textbf{\greygra{0.62}} & \textbf{\greygra{0.51}} & \textbf{\greygra{0.58}} & \textbf{\greygra{0.56}} \\
+\addlinespace[3pt]
+Revise & 0.52 & 0.52 & 0.54 & 0.55 & 0.53 & 0.41 & \textbf{0.53} & \textbf{0.50} \\
+GECScore & 0.77 & 0.76 & 0.69 & 0.73 & 0.62 & 0.63 & \textbf{0.70} & \textbf{0.71} \\
+FDGPT (BB) & 0.55 & 0.51 & 0.60 & 0.53 & 0.63 & 0.51 & \textbf{0.59} & \textbf{0.52} \\
+\cdashline{1-9} \addlinespace[1pt]
+Avg. Black-box & \textbf{\greygra{0.61}} & \textbf{\greygra{0.60}} & \textbf{\greygra{0.61}} & \textbf{\greygra{0.60}} & \textbf{\greygra{0.59}} & \textbf{\greygra{0.52}} & \textbf{\greygra{0.61}} & \textbf{\greygra{0.57}} \\
+\addlinespace[3pt]
+xlm-RoBERTa & 0.83 & 0.83 & 0.79 & 0.78 & 0.86 & 0.85 & \textbf{0.83} & \textbf{0.82} \\
+mDeBERTa & 0.87 & 0.87 & 0.81 & 0.80 & 0.86 & 0.86 & \textbf{0.85} & \textbf{0.84} \\
+\cdashline{1-9} \addlinespace[1pt]
+Avg. Supervised & \textbf{\greygra{0.85}} & \textbf{\greygra{0.85}} & \textbf{\greygra{0.80}} & \textbf{\greygra{0.79}} & \textbf{\greygra{0.86}} & \textbf{\greygra{0.85}} & \textbf{\greygra{0.84}} & \textbf{\greygra{0.83}} \\
+\addlinespace[3pt]
+\midrule
+\multicolumn{9}{l}{\textbf{Paragraph Continuation}} \\
+\midrule
+Binoculars & 0.53 & 0.51 & 0.57 & 0.55 & 0.62 & 0.64 & \textbf{0.57} & \textbf{0.57} \\
+LLR & 0.51 & 0.18 & 0.52 & 0.35 & 0.53 & 0.27 & \textbf{0.52} & \textbf{0.27} \\
+FDGPT (WB) & 0.51 & 0.38 & 0.56 & 0.45 & 0.59 & 0.45 & \textbf{0.55} & \textbf{0.43} \\
+\cdashline{1-9} \addlinespace[1pt]
+Avg. White-box & \textbf{\greygra{0.52}} & \textbf{\greygra{0.36}} & \textbf{\greygra{0.55}} & \textbf{\greygra{0.45}} & \textbf{\greygra{0.58}} & \textbf{\greygra{0.46}} & \textbf{\greygra{0.55}} & \textbf{\greygra{0.42}} \\
+\addlinespace[3pt]
+Revise & 0.51 & 0.46 & 0.52 & 0.46 & 0.52 & 0.57 & \textbf{0.52} & \textbf{0.50} \\
+GECScore & 0.57 & 0.55 & 0.55 & 0.31 & 0.53 & 0.28 & \textbf{0.55} & \textbf{0.38} \\
+FDGPT (BB) & 0.52 & 0.26 & 0.58 & 0.49 & 0.61 & 0.49 & \textbf{0.57} & \textbf{0.41} \\
+\cdashline{1-9} \addlinespace[1pt]
+Avg. Black-box & \textbf{\greygra{0.53}} & \textbf{\greygra{0.42}} & \textbf{\greygra{0.55}} & \textbf{\greygra{0.42}} & \textbf{\greygra{0.55}} & \textbf{\greygra{0.45}} & \textbf{\greygra{0.55}} & \textbf{\greygra{0.43}} \\
+\addlinespace[3pt]
+xlm-RoBERTa & 0.82 & 0.82 & 0.83 & 0.82 & 0.88 & 0.88 & \textbf{0.84} & \textbf{0.84} \\
+mDeBERTa & 0.84 & 0.83 & 0.84 & 0.83 & 0.87 & 0.87 & \textbf{0.85} & \textbf{0.85} \\
+\cdashline{1-9} \addlinespace[1pt]
+Avg. Supervised & \textbf{\greygra{0.83}} & \textbf{\greygra{0.83}} & \textbf{\greygra{0.83}} & \textbf{\greygra{0.83}} & \textbf{\greygra{0.87}} & \textbf{\greygra{0.87}} & \textbf{\greygra{0.84}} & \textbf{\greygra{0.84}} \\
+\addlinespace[3pt]
+\midrule
+\multicolumn{9}{l}{\textbf{Summarisation}} \\
+\midrule
+Binoculars & 0.61 & 0.62 & 0.69 & 0.71 & 0.66 & 0.71 & \textbf{0.65} & \textbf{0.68} \\
+LLR & 0.55 & 0.66 & 0.56 & 0.61 & 0.55 & 0.56 & \textbf{0.55} & \textbf{0.61} \\
+FDGPT (WB) & 0.59 & 0.57 & 0.65 & 0.65 & 0.64 & 0.51 & \textbf{0.63} & \textbf{0.58} \\
+\cdashline{1-9} \addlinespace[1pt]
+Avg. White-box & \textbf{\greygra{0.58}} & \textbf{\greygra{0.62}} & \textbf{\greygra{0.63}} & \textbf{\greygra{0.66}} & \textbf{\greygra{0.62}} & \textbf{\greygra{0.59}} & \textbf{\greygra{0.61}} & \textbf{\greygra{0.62}} \\
+\addlinespace[3pt]
+Revise & 0.53 & 0.60 & 0.53 & 0.56 & 0.53 & 0.59 & \textbf{0.53} & \textbf{0.58} \\
+GECScore & 0.75 & 0.75 & 0.68 & 0.71 & 0.63 & 0.67 & \textbf{0.68} & \textbf{0.71} \\
+FDGPT (BB) & 0.59 & 0.61 & 0.65 & 0.65 & 0.63 & 0.49 & \textbf{0.62} & \textbf{0.58} \\
+\cdashline{1-9} \addlinespace[1pt]
+Avg. Black-box & \textbf{\greygra{0.62}} & \textbf{\greygra{0.65}} & \textbf{\greygra{0.62}} & \textbf{\greygra{0.64}} & \textbf{\greygra{0.60}} & \textbf{\greygra{0.58}} & \textbf{\greygra{0.61}} & \textbf{\greygra{0.63}} \\
+\addlinespace[3pt]
+xlm-RoBERTa & 0.91 & 0.90 & 0.90 & 0.90 & 0.88 & 0.87 & \textbf{0.90} & \textbf{0.89} \\
+mDeBERTa & 0.89 & 0.89 & 0.91 & 0.90 & 0.87 & 0.87 & \textbf{0.89} & \textbf{0.89} \\
+\cdashline{1-9} \addlinespace[1pt]
+Avg. Supervised & \textbf{\greygra{0.90}} & \textbf{\greygra{0.90}} & \textbf{\greygra{0.90}} & \textbf{\greygra{0.90}} & \textbf{\greygra{0.87}} & \textbf{\greygra{0.87}} & \textbf{\greygra{0.89}} & \textbf{\greygra{0.89}} \\
+\addlinespace[3pt]
+\midrule
+\multicolumn{9}{l}{\textbf{Text Style Transfer}} \\
+\midrule
+Binoculars & 0.52 & 0.34 & 0.54 & 0.51 & 0.55 & 0.39 & \textbf{0.54} & \textbf{0.41} \\
+LLR & 0.50 & 0.03 & 0.50 & 0.15 & 0.51 & 0.34 & \textbf{0.51} & \textbf{0.18} \\
+FDGPT (WB) & 0.52 & 0.57 & 0.53 & 0.49 & 0.54 & 0.41 & \textbf{0.53} & \textbf{0.49} \\
+\cdashline{1-9} \addlinespace[1pt]
+Avg. White-box & \textbf{\greygra{0.52}} & \textbf{\greygra{0.32}} & \textbf{\greygra{0.52}} & \textbf{\greygra{0.38}} & \textbf{\greygra{0.53}} & \textbf{\greygra{0.38}} & \textbf{\greygra{0.52}} & \textbf{\greygra{0.36}} \\
+\addlinespace[3pt]
+Revise & 0.52 & 0.62 & 0.52 & 0.56 & 0.52 & 0.60 & \textbf{0.52} & \textbf{0.60} \\
+GECScore & 0.63 & 0.61 & 0.61 & 0.59 & 0.57 & 0.38 & \textbf{0.60} & \textbf{0.53} \\
+FDGPT (BB) & 0.52 & 0.39 & 0.53 & 0.41 & 0.53 & 0.37 & \textbf{0.53} & \textbf{0.39} \\
+\cdashline{1-9} \addlinespace[1pt]
+Avg. Black-box & \textbf{\greygra{0.56}} & \textbf{\greygra{0.54}} & \textbf{\greygra{0.55}} & \textbf{\greygra{0.52}} & \textbf{\greygra{0.54}} & \textbf{\greygra{0.45}} & \textbf{\greygra{0.55}} & \textbf{\greygra{0.50}} \\
+\addlinespace[3pt]
+xlm-RoBERTa & 0.61 & 0.59 & 0.64 & 0.63 & 0.59 & 0.57 & \textbf{0.61} & \textbf{0.59} \\
+mDeBERTa & 0.61 & 0.59 & 0.67 & 0.65 & 0.64 & 0.63 & \textbf{0.64} & \textbf{0.62} \\
+\cdashline{1-9} \addlinespace[1pt]
+Avg. Supervised & \textbf{\greygra{0.61}} & \textbf{\greygra{0.59}} & \textbf{\greygra{0.65}} & \textbf{\greygra{0.64}} & \textbf{\greygra{0.62}} & \textbf{\greygra{0.60}} & \textbf{\greygra{0.63}} & \textbf{\greygra{0.61}} \\
+\addlinespace[3pt]
+\bottomrule
+\end{tabular}

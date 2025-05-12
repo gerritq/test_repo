@@ -1,0 +1,28 @@
+\begin{tabular}{lcccccccccc}
+\toprule
+\textbf{Detector} & \multicolumn{10}{c}{\textbf{English Text Style Transfer}} \\
+\cmidrule(lr){2-11}
+ & \multicolumn{2}{c}{GPT-4o mini} & \multicolumn{2}{c}{Gemini 2.0} & \multicolumn{2}{c}{Qwen 2.5} & \multicolumn{2}{c}{Mistral} & \multicolumn{2}{c}{\textbf{Avg}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9} \cmidrule(lr){10-11}
+ & ACC & F1 & ACC & F1 & ACC & F1 & ACC & F1 & ACC & F1 \\
+\midrule
+Binoculars & 0.58 & 0.53 & 0.55 & 0.47 & 0.52 & 0.39 & 0.57 & 0.51 & \textbf{\greygra{0.56}} & \textbf{\greygra{0.48}} \\
+LLR & 0.52 & 0.25 & 0.51 & 0.22 & 0.50 & 0.03 & 0.53 & 0.40 & \textbf{\greygra{0.51}} & \textbf{\greygra{0.22}} \\
+FDGPT (WB) & 0.60 & 0.63 & 0.56 & 0.60 & 0.52 & 0.60 & 0.58 & 0.61 & \textbf{\greygra{0.56}} & \textbf{\greygra{0.61}} \\
+\cdashline{1-11} \addlinespace[1pt]
+Avg (White-box) & \greygra{0.57} & \greygra{0.47} & \greygra{0.54} & \greygra{0.43} & \greygra{0.52} & \greygra{0.34} & \greygra{0.56} & \greygra{0.51} & \textbf{\greygra{0.55}} & \textbf{\greygra{0.44}} \\
+\addlinespace[3pt]
+Revise & 0.53 & 0.62 & 0.52 & 0.56 & 0.53 & 0.42 & 0.52 & 0.55 & \textbf{\greygra{0.53}} & \textbf{\greygra{0.54}} \\
+GECScore & 0.83 & 0.82 & 0.64 & 0.67 & 0.73 & 0.69 & 0.67 & 0.69 & \textbf{\greygra{0.72}} & \textbf{\greygra{0.72}} \\
+FDGPT (BB) & 0.59 & 0.62 & 0.54 & 0.55 & 0.51 & 0.63 & 0.58 & 0.54 & \textbf{\greygra{0.56}} & \textbf{\greygra{0.59}} \\
+\cdashline{1-11} \addlinespace[1pt]
+Avg (Black-box) & \greygra{0.65} & \greygra{0.69} & \greygra{0.57} & \greygra{0.59} & \greygra{0.59} & \greygra{0.58} & \greygra{0.59} & \greygra{0.59} & \textbf{\greygra{0.60}} & \textbf{\greygra{0.61}} \\
+\addlinespace[3pt]
+xlm-RoBERTa & 0.78 & 0.77 & 0.78 & 0.77 & 0.78 & 0.77 & 0.71 & 0.71 & \textbf{\greygra{0.76}} & \textbf{\greygra{0.76}} \\
+mDeBERTa & 0.83 & 0.83 & 0.77 & 0.76 & 0.81 & 0.81 & 0.67 & 0.64 & \textbf{\greygra{0.77}} & \textbf{\greygra{0.76}} \\
+\cdashline{1-11} \addlinespace[1pt]
+Avg (Supervised) & \greygra{0.81} & \greygra{0.80} & \greygra{0.78} & \greygra{0.77} & \greygra{0.80} & \greygra{0.79} & \greygra{0.69} & \greygra{0.67} & \textbf{\greygra{0.77}} & \textbf{\greygra{0.76}} \\
+\addlinespace[3pt]
+\midrule
+\bottomrule
+\end{tabular}
